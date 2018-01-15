@@ -58,7 +58,7 @@ rdd = rdd.map(lambda x: (x[0], x[1], x[2], meses[int(str(x[3]).split('-')[1]) - 
 
 
 rddMeses = rdd.map(lambda x: ((x[3], x[1]), 1)) #key-pair con (MES,GENERO)como clave y un 1 como valor
-rddMeses2 = rdd.map(lamda x: ((x[3], x[1]), x[2]))
+rddMeses2 = rdd.map(lambda x: ((x[3], x[1]), x[2]))
 solMeses = rddMeses.reduceByKey(lambda a, b: a + b)
 solMeses2 = rddMeses2.reduceByKey(lambda a, b: a + b)
 
