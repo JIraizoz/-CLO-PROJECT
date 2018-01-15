@@ -12,9 +12,9 @@ estaciones = ['Primavera', 'Verano', 'Otonyo', 'Invierno']
 epocas = ['Navidad', 'Vacaciones', 'Periodo Lectivo']
 
 #leer los archivos con meses, estaciones y epocas
-dfMeses = sqlContext.read.format("com.databricks.spark.csv").option("header", "true").option("inferschema", "true").load("meses.csv/part-00000-da909592-6c41-412b-8f8d-aaec34da8f94-c000.csv")
-dfEstaciones = sqlContext.read.format("com.databricks.spark.csv").option("header", "true").option("inferschema", "true").load("estaciones.csv/part-00000-ba159172-6ad5-4f46-9628-8dfa9176fd2c-c000.csv")
-dfEpocas = sqlContext.read.format("com.databricks.spark.csv").option("header", "true").option("inferschema", "true").load("epocas.csv/part-00000-0e685008-42d2-4c3b-9213-ea3e8b6866e0-c000.csv")
+dfMeses = sqlContext.read.format("com.databricks.spark.csv").option("header", "true").option("inferschema", "true").load("meses.csv/part-00000*.csv")
+dfEstaciones = sqlContext.read.format("com.databricks.spark.csv").option("header", "true").option("inferschema", "true").load("estaciones.csv/part-00000*.csv")
+dfEpocas = sqlContext.read.format("com.databricks.spark.csv").option("header", "true").option("inferschema", "true").load("epocas.csv/part-00000*.csv")
 
 solMeses = dfMeses.rdd
 solEstaciones = dfEstaciones.rdd
